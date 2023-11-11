@@ -2,9 +2,20 @@ services:
   sql1:
     container_name: sql1
     hostname: sql1
-    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    user: root
     ports:
       - "1433:1433"
     environment:
       ACCEPT_EULA: Y
       MSSQL_SA_PASSWORD: Password1234
+      PATH: /opt/mssql/bin:/opt/mssql-tools/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    entrypoint: /entrypoint.sh
+    volumes:
+      - ./entrypoint.sh:/entrypoint.sh
+      - ./restore-db.sh:/restore-db.sh
+      - ./sql:/sql
+      - sql-server:/var/opt/mssql
+
+volumes:
+  sql-server:

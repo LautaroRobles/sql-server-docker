@@ -3,14 +3,31 @@
 ## Requisitos
 
 - Docker
+- Makefile
 
-## Como ejecutar
+## Ejecutar por primera vez
 
-```
-sudo docker compose up -d
-```
+1. En la carpeta `sql` descomprimir el archivo `gd_esquema.Maestra.Table.rar`. El contenido de la carpeta deberia quedar como:
+    ```
+    sql
+    ├─ .gitignore
+    ├─ gd_esquema.Maestra.sql
+    ├─ gd_esquema.Maestra.Table.rar
+    ├─ gd_esquema.Maestra.Table.sql
+    └─ gd_esquema.Schema.sql
+    ```
 
-Ahora te podes conectar usando DataGrip o algun otro gestor de bases de datos.
+2. Iniciar servidor y ejecutar el restore (va a tardar un rato)
+    ```
+    make start restore-db
+    ```
+
+3. La base de datos es persistente, por lo tanto en otros momentos solo ejecutar
+    ```
+    make start logs
+    ```
+
+### Ahora te podes conectar usando DataGrip o algun otro gestor de bases de datos.
 
 Poner datos:
 
@@ -18,14 +35,14 @@ Poner datos:
 - Pass: Password1234 (se puede cambiar en el docker-compose)
 - Port: 1433 (tambien se puede cambiar en el docker-compose)
 
-## Ver logs de la base de datos
-
-```
-sudo docker logs sql1
-```
-
 ## Apagar server
 
 ```
-sudo docker compose down
+make stop
+```
+
+## Ver todos los comandos disponibles
+
+```
+make help
 ```
