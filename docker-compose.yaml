@@ -10,11 +10,10 @@ services:
       ACCEPT_EULA: Y
       MSSQL_SA_PASSWORD: Password1234
       PATH: /opt/mssql/bin:/opt/mssql-tools18/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-    entrypoint: /usr/local/bin/entrypoint.sh
+    entrypoint: /usr/scripts/entrypoint.sh
     volumes:
-      - ./entrypoint:/usr/local/bin/entrypoint.sh
-      - ./restore-db:/usr/local/bin/restore-db.sh
-      - ./log:/usr/local/log
+      - ./scripts:/usr/scripts
+      - ./log:/usr/log
       - ./backup:/var/opt/mssql/backup              
       - sql-server:/var/opt/mssql                   # Volumen para los datos de la DB
 

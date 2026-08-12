@@ -21,6 +21,6 @@ logs:
 terminal:
 	{{docker}} exec -it sql1 bash
 
-# Restaurar la base de datos con los datos de /sql
+# Restaurar la base de datos al backup
 restore-db:
-	{{docker}} exec sql1 restore-db
+	{{docker}} exec sql1 /usr/scripts/restore-backup.sh

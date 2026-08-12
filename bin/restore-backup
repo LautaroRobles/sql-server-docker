@@ -1,6 +1,0 @@
-#!/bin/bash
-
-#sqlcmd -U sa -P Password1234 -S localhost -C -Q "CREATE DATABASE GD2C2023"
-#sqlcmd -U sa -P Password1234 -S localhost -C -i gd_esquema.Schema.sql,gd_esquema.Maestra.sql,gd_esquema.Maestra.Table.sql -a 32767 2>&1 | tee restore.log
-
-sqlcmd -U sa -P $MSSQL_SA_PASSWORD -S localhost -C -Q "RESTORE FILELISTONLY FROM DISK = '/var/opt/mssql/backup/GD2015C1.BAK'"
