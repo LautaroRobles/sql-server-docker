@@ -3,7 +3,7 @@
 ## Requisitos
 
 - Docker
-- Makefile
+- Justfile
 
 ## Ejecutar por primera vez
 
@@ -19,12 +19,12 @@
 
 2. Iniciar servidor y ejecutar el restore (va a tardar un rato)
     ```
-    make start restore-db
+    just deploy restore-db
     ```
 
 3. La base de datos es persistente, por lo tanto en otros momentos solo ejecutar
     ```
-    make start logs
+    just deploy logs
     ```
 
 ### Ahora te podes conectar usando DataGrip o algun otro gestor de bases de datos.
@@ -38,11 +38,11 @@ Poner datos:
 ## Apagar server
 
 ```
-make stop
+just down
 ```
 
 ## Ver todos los comandos disponibles
 
 ```
-make help
+just help
 ```
