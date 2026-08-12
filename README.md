@@ -5,35 +5,24 @@
 - Docker
 - Justfile
 
-## Ejecutar por primera vez
+## Levantar el servidor de SQL
 
-1. En la carpeta `sql` descomprimir el archivo `gd_esquema.Maestra.Table.rar`. El contenido de la carpeta deberia quedar como:
-    ```
-    sql
-    ├─ .gitignore
-    ├─ gd_esquema.Maestra.sql
-    ├─ gd_esquema.Maestra.Table.rar
-    ├─ gd_esquema.Maestra.Table.sql
-    └─ gd_esquema.Schema.sql
-    ```
+```
+just deploy
+```
 
-2. Iniciar servidor y ejecutar el restore (va a tardar un rato)
-    ```
-    just deploy restore-db
-    ```
+## Restaurar la base de datos al backup
 
-3. La base de datos es persistente, por lo tanto en otros momentos solo ejecutar
-    ```
-    just deploy logs
-    ```
+```
+just restore-backup
+```
 
-### Ahora te podes conectar usando DataGrip o algun otro gestor de bases de datos.
+## Datos para la conexion
 
-Poner datos:
-
-- User: sa
-- Pass: Password1234 (se puede cambiar en el docker-compose)
-- Port: 1433 (tambien se puede cambiar en el docker-compose)
+- **User**: `sa`
+- **Pass**: `Password1234`
+- **Database**: `BDD2026`
+- **Port**: `1433`
 
 ## Apagar server
 
@@ -44,5 +33,5 @@ just down
 ## Ver todos los comandos disponibles
 
 ```
-just help
+just
 ```

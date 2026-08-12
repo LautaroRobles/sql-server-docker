@@ -22,5 +22,5 @@ terminal:
 	{{docker}} exec -it sql1 bash
 
 # Restaurar la base de datos al backup
-restore-db:
+restore-backup:
 	{{docker}} exec sql1 /usr/scripts/restore-backup.sh
